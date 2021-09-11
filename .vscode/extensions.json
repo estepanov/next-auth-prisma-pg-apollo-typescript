@@ -1,7 +1,9 @@
 {
     "recommendations": [
-        "prisma.prisma",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+      "prisma.prisma",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "apollographql.vscode-apollo",
+      "bradlc.vscode-tailwindcss"
     ]
 }

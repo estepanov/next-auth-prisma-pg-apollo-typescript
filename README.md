@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, make sure you have postgresql installed and running on your machine.
+
+Second, copy the `.env.example` to `.env`
+
+Now start the development server:
 
 ```bash
 npm run dev
