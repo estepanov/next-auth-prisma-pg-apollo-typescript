@@ -1,9 +1,9 @@
 module.exports = {
   client: {
-    service: {
-      name: 'api',
-      includes: ['./pages/**/*.tsx','./pages/*.tsx','./components/**/*.tsx','./components/*.tsx'],
-      localSchemaFile: './graphql/schema.graphql'
-    }
+    includes: ['./pages/**/*.tsx','./pages/*.tsx','./components/**/*.tsx','./components/*.tsx', './graphql/**/*.ts'],
+    localSchemaFile: './graphql/schema.graphql'
   },
+  service: {
+    localSchemaFile: './graphql/schema.graphql'
+  }
 };

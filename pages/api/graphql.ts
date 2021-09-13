@@ -3,8 +3,8 @@ import { getSession } from 'next-auth/client';
 import { ApolloServerPluginLandingPageDisabled } from 'apollo-server-core';
 import { NextApiRequest, NextApiResponse } from 'next';
 import cors from 'cors';
-import typeDefs from '../../graphql/typeDefs';
-import resolvers from '../../graphql/resolvers';
+import typeDefs from 'graphql/schema.graphql';
+import resolvers from 'graphql/resolvers';
 
 const server = new ApolloServer({
   typeDefs,

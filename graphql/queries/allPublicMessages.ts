@@ -5,6 +5,7 @@ const PUBLIC_MESSAGES_QUERY = gql`
     publicMessages {
       id
       message
+      createdAt
       author {
         id
         name

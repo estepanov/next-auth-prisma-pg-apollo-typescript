@@ -8,6 +8,7 @@ const publicMessage = (parent, { id }, context, info) =>
     select: {
       id: true,
       message: true,
+      createdAt: true,
       author: {
         select: {
           id: true,
@@ -16,4 +17,5 @@ const publicMessage = (parent, { id }, context, info) =>
       },
     },
   });
+
 export default publicMessage;

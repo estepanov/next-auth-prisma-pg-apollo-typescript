@@ -1,3 +1,5 @@
+scalar Date
+
 type User {
   id: String!
   email: String!
@@ -15,6 +17,8 @@ type PublicMessage {
   id: String!
   message: String!
   author: Author
+  createdAt: Date
+  updatedAt: Date
 }
 
 type Query {

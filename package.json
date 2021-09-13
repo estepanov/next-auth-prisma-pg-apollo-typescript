@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-gql-json": "npx apollo schema:download --endpoint=http://localhost:3000/api/graphql graphql/graphql-schema.json"
   },
   "dependencies": {
     "@apollo/client": "^3.4.11",
@@ -19,6 +20,8 @@
     "apollo-server-core": "^3.3.0",
     "apollo-server-micro": "^3.3.0",
     "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.10.7",
     "graphql": "^15.5.3",
     "micro": "^9.3.4",
     "next": "11.1.2",

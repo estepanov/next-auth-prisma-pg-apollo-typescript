@@ -4,7 +4,8 @@ import { Provider } from "next-auth/client";
 import {
   ApolloProvider,
 } from "@apollo/client";
-import client from "../apollo/client"
+
+import client from "apollo/client"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
