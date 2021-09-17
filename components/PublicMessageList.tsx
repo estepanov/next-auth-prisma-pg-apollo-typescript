@@ -33,6 +33,7 @@ const PublicMessageList = () => {
     ],
   })
 
+
   const deleteHandler = useCallback(
     (id) => (e) => {
       e.preventDefault()
@@ -46,19 +47,28 @@ const PublicMessageList = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return <>{data?.publicMessages?.map(({ id, message, author, createdAt }) => (
-    <div key={id} className="bg-gray-100 p-4 flex flex-row rounded-md my-1">
-      <div className="flex-1">
-        {author ? <span className="text-gray-700 mr-2 font-medium text-xs">{author.name || `anonymous`}</span> : null}
-        {author && !author.name ? <span className="text-gray-600 mr-1 text-xs">{author.id}</span> : null}
-        <div>{message}</div>
+  return <>{data?.publicMessages?.map(({ id, message, author, createdAt }) => {
+    const isAuthor = meData && meData?.me?.id === author.id;
+
+    return (
+      <div key={id} className="bg-white dark:bg-black p-4 flex flex-row rounded-md mb-4">
+        <div className="flex-1">
+          <div>
+            <div>
+              {author ? <span className="text-gray-800 dark:text-gray-200 font-medium text-sm">{author.name || `anonymous`}</span> : null}
+              {author && isAuthor ? <span className="ml-2 text-green-700 dark:text-green-300 text-xs font-black">YOU</span> : null}
+            </div>
+            {author && !author.name ? <span className="block text-gray-400 text-xs">{author.id}</span> : null}
+          </div>
+          <div className="mt-2">{message}</div>
+        </div>
+        <div className="ml-2 flex flex-col items-end">
+          {createdAt ? <span className="text-gray-600 dark:text-gray-400 text-xs mb-1">{dayjs(createdAt).from(dayjs())}</span> : null}
+          {isAuthor && <button className="flex-grow-0 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs uppercase px-2 py-1" type="button" disabled={deleting} onClick={deleteHandler(id)}>delete</button>}
+        </div>
       </div>
-      <div className="ml-2 flex flex-col items-end">
-        {createdAt ? <span className="text-gray-600 text-xs mb-1">{dayjs(createdAt).from(dayjs())}</span> : null}
-        {meData && meData?.me?.id === author.id && <button className="flex-grow-0 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 bg-gray-200 text-gray-600 text-xs uppercase px-2 py-1" type="button" disabled={deleting} onClick={deleteHandler(id)}>delete</button>}
-      </div>
-    </div>
-  ))}</>
+    )
+  })}</>
 }
 
 export default PublicMessageList

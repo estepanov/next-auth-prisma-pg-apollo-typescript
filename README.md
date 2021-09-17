@@ -1,12 +1,16 @@
+# Awesome Next Boilerplate
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, make sure you have postgresql installed and running on your machine.
+1. Make sure you have postgresql installed and running on your machine.
 
-Second, copy the `.env.example` to `.env`
+2. Copy the `.env.example` to `.env`
 
-Now start the development server:
+3. Edit `.env` with your own information. By default email auth is the only option, so you will need an email provider or service like <https://mailtrap.io>
+
+4. Start the development server:
 
 ```bash
 npm run dev

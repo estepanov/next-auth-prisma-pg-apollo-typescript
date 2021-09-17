@@ -1,8 +1,9 @@
 import prisma from '../../../prisma/client';
 
-const publicMessages = (parent, args, context, info) =>
+const publicMessages = (parent, { page }, context, info) =>
   prisma.publicMessage.findMany({
-    take: 100,
+    take: 5,
+    skip: page ? page - 1 : undefined,
     orderBy: {
       createdAt: 'desc',
     },
