@@ -1,9 +1,9 @@
-import NextAuth from 'next-auth';
+import NextAuth, { CookiesOptions, NextAuthOptions } from 'next-auth';
 import Providers from 'next-auth/providers';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from '../../../prisma/client';
 
-const options = {
+const options: NextAuthOptions = {
   // debug: true,
   providers: [
     Providers.Email({
@@ -16,7 +16,7 @@ const options = {
   secret: process.env.SECRET,
   cookies:
     process.env.NODE_ENV !== 'production'
-      ? {
+      ? ({
           sessionToken: {
             name: 'next-auth.session-token',
             options: {
@@ -52,7 +52,7 @@ const options = {
               secure: true,
             },
           },
-        }
+        } as CookiesOptions)
       : {},
 };
 

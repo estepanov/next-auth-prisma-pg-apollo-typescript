@@ -25,7 +25,7 @@ interface PublicMessage {
 }
 
 const PublicMessageList = () => {
-  const { data: meData } = useQuery<User>(ME_QUERY);
+  const { data: meData } = useQuery<{ me: User }>(ME_QUERY);
   const { loading, error, data } = useQuery<{ publicMessages: PublicMessage[] }>(PUBLIC_MESSAGES_QUERY)
   const [deletePublicMessage, { loading: deleting }] = useMutation<PublicMessage, { id: string }>(DELETE_PUBLIC_MESSAGE_MUTATION, {
     refetchQueries: [
@@ -35,7 +35,7 @@ const PublicMessageList = () => {
 
 
   const deleteHandler = useCallback(
-    (id) => (e) => {
+    (id) => (e: any) => {
       e.preventDefault()
       if (!deleting) {
         deletePublicMessage({ variables: { id } })

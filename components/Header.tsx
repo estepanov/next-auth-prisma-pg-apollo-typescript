@@ -25,7 +25,7 @@ const UserMenu = ({ gravatarURL }: { gravatarURL: string }) => {
         <span className="sr-only">{session?.user?.email ?? session?.user?.name}</span>
         <img className="h-8 w-8 rounded-full" src={gravatarURL} alt="" />
       </button>
-      {showMenu && <div className="text-black origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+      {showMenu && <div className="text-black origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" >
         <div className="px-4 py-3" role="none">
           <p className="text-sm" role="none">
             Signed in as
@@ -36,12 +36,12 @@ const UserMenu = ({ gravatarURL }: { gravatarURL: string }) => {
         </div>
         <div className="py-1" role="none">
           <Link passHref href="/">
-            <a className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Account settings</a>
+            <a className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-0">Account settings</a>
           </Link>
         </div>
         <div className="py-1" role="none">
           <form method="POST" action="#" role="none">
-            <button onClick={() => signOut} type="submit" className="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-3">
+            <button onClick={() => signOut} type="submit" className="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" id="menu-item-3">
               Sign out
             </button>
           </form>
